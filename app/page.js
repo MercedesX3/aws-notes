@@ -697,27 +697,27 @@ export default function HomePage() {
           --font: -apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;
         }
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        html, body { height: 100%; margin: 0; }
+        html, body { height: 100%; margin: 0; overflow-x: hidden; }
         body {
           font-family: var(--font);
           color: var(--ink);
           background: radial-gradient(1200px 600px at 50% -10%, #FFFFFF 0%, rgba(255,255,255,0) 60%), var(--bg);
           display: flex;
           flex-direction: column;
-          align-items: center;
+          align-items: stretch;
           min-height: 100dvh;
           padding: 24px 20px 40px;
           -webkit-font-smoothing: antialiased;
           text-rendering: optimizeLegibility;
         }
         [hidden] { display: none !important; }
-        .wrap { width: 100%; max-width: 560px; display: flex; flex-direction: column; flex: 1; }
+        .wrap { width: 100%; max-width: 560px; min-width: 0; margin: 0 auto; display: flex; flex-direction: column; flex: 1; }
         header { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
-        .brand { display: flex; flex-direction: column; gap: 2px; }
-        .brand h1 { margin: 0; font-size: 26px; font-weight: 700; letter-spacing: -.02em; }
-        .brand p { margin: 0; font-size: 13px; color: var(--ink-2); letter-spacing: -.01em; }
-        .known { font-size: 13px; font-weight: 590; color: var(--ink-2); background: rgba(52,199,89,.12); color: #248A3D; padding: 6px 12px; border-radius: 100px; white-space: nowrap; letter-spacing: -.01em; transition: background .3s ease; }
-        .chips { display: flex; gap: 8px; overflow-x: auto; padding: 4px 2px 12px; margin: 0 -2px 4px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+        .brand { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+        .brand h1 { margin: 0; font-size: clamp(20px,6vw,26px); font-weight: 700; letter-spacing: -.02em; }
+        .brand p { margin: 0; font-size: 13px; color: var(--ink-2); letter-spacing: -.01em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .known { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; font-size: 13px; font-weight: 590; color: var(--ink-2); background: rgba(52,199,89,.12); color: #248A3D; padding: 6px 12px; border-radius: 100px; white-space: nowrap; letter-spacing: -.01em; transition: background .3s ease; }
+        .chips { display: flex; gap: 8px; overflow-x: auto; min-width: 0; padding: 4px 2px 12px; margin: 0 -2px 4px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
         .chips::-webkit-scrollbar { display: none; }
         .chip { flex: 0 0 auto; border: none; cursor: pointer; font-family: inherit; font-size: 13px; font-weight: 560; letter-spacing: -.01em; padding: 8px 15px; border-radius: 100px; background: var(--surface); color: var(--ink-2); box-shadow: 0 1px 1px rgba(0,0,0,.03), 0 0 0 .5px var(--hair) inset; transition: transform .18s cubic-bezier(.3,1.4,.5,1), background .2s, color .2s, box-shadow .2s; white-space: nowrap; }
         .chip:hover { color: var(--ink); }
